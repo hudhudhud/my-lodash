@@ -1460,7 +1460,7 @@ var hudan = {
   throttle: function(fn, wait = 0) {
     var lastTime = -Infinity
     return function(...args) {
-      var now = Date.now
+      var now = Date.now()
       if (now - lastTime > wait) {
         fn(...args)
         lastTime = now
