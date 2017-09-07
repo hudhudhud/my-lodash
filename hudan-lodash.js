@@ -1565,10 +1565,11 @@ var hudan = {
     }
     return str.replace(/^/, i => f(lenLeft)).replace(/$/, i => f(lenRight))
   },
+  //记忆函数
   memoize: function memoize(f, resolver = it => it) {
     var cache = new hudan.memoize.Cache
       //Map类型可以自定义，在此还是给hudan.memoize的Cache属性定义为Map类型
-    function memod() {
+    function memod(...args) {
       var key = resolver(...args)
       if (cache.has(key)) {
         return cache.get(key)
